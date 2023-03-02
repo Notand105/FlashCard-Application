@@ -1,0 +1,9 @@
+.flashContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  min-height: 30vh;
+  gap: 1em;
+  padding: 1em;
+}

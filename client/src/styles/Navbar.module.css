@@ -1,0 +1,29 @@
+.nav{
+  min-width: 100vw;
+  padding: .5em;
+  background-color: #8f0029;
+  color: white;
+  position: sticky;
+  top:0;
+  z-index: 100;
+
+}
+
+.list {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 3em;
+}
+.link{
+  text-decoration: none;
+  color: whitesmoke;
+  transition: ease .1s;
+}
+.link:hover{
+  transition: ease .1s;
+  font-size: .97em;
+  text-decoration: underline;
+}
