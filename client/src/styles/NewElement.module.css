@@ -1,0 +1,55 @@
+.container{
+    padding: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-width: 100vw;
+}
+.demostration{
+    border: 1px solid black;
+    flex: 45%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    flex: 45%;
+}
+.form > input{
+    padding: .5em;
+    margin: 1em;
+}
+
+.btn{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: .6em;
+    width: 12em;
+    color: white;
+    background-color: #8f0029;
+    border-radius: 1em;
+}
+.btn:hover{
+    background-color: #7a0008;
+    transform: scale(98%);
+}
+
+.card{
+    border: 8px solid #8f0029;
+    word-wrap: break-word;
+    width: 18em;
+    border-radius: 1em;
+    padding: 1em;
+    min-height:10em ;
+  }

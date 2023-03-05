@@ -13,13 +13,12 @@ const getElements = async (req, res) => {
 
 const createElement = async (req, res) => {
   try {
-    const { name, description, image } = req.body;
+    const { name, description } = req.body;
     console.log(req.body);
 
     let newElement = new Element({
       name,
       description,
-      image
     });
     console.log(newElement);
 

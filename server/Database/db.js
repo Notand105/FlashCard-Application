@@ -16,7 +16,7 @@ const elementSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  image: String,
+  
 });
 
 const Element = mongoose.model("Element", elementSchema);

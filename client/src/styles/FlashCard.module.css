@@ -1,5 +1,5 @@
 .card{
-  border: 1px solid black;
+  border: 8px solid #8f0029;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -7,14 +7,35 @@
   justify-content: space-evenly;
   flex: 30%;
   min-height: 20em;
-  min-width: 15em;
+  min-width: 18em;
   border-radius: 1em;
   transition: .2s ease;
-
+  position: relative;
+  max-width: 18em;
+  padding: 1em;
+  
 }
 .card:hover{
-  transform: scaleY(1.05);
+  border:8px solid gray;
+  transform: scaleY(1.05) translateY(-1em)  ;
   cursor: pointer;
   transition: .2s ease;
 
+}
+
+.controls{
+  position: absolute;
+  top:1em;
+  right: .5em;
+}
+
+.controls > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: .1s ease;
+}
+.controls > button:hover{
+  transform: scale(1.3);
+  transition: .1s ease;
 }

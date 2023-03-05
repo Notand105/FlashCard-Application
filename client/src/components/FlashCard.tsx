@@ -20,9 +20,9 @@ const FlashCard = ({ element }: { element: Element }) => {
 
   return (
     <div className={styles.card} onClick={toggleFlip}>
-      <div className={styles.controls} >
+      <div className={styles.controls}>
         <button onClick={() => handleDeleteClick(element._id)}>
-          Delete Element
+         <span className="material-symbols-outlined " style={{color:'red'}} >delete</span> 
         </button>
       </div>
 
