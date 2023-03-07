@@ -1,66 +1,98 @@
-.container{
-    padding: 4em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    min-width: 100vw;
+.container {
+  padding: 4em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-width: 100vw;
 }
-.demostration{
-    border: 1px solid black;
-    flex: 45%;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.demostration {
+  border: 1px solid black;
+  flex: 45%;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.frontPart{
-    background-color: red;
-    height: 100%;
-    width: 100%;
-
+.frontPart {
+  /* animation-name: OpociteFlip; */
+  /* animation-duration: 1s; */
+  transform: rotateY(180deg);
+  height: 100%;
+  width: 100%;
+  /* backface-visibility: hidden; */
 }
-.backPart{
-   background-color: blue;  
-   height: 100%;
-   width: 100%;
+.backPart {
+  /* animation-name: OpociteFlip; */
+  /* animation-duration: 1s; */
+  /* backface-visibility: hidden; */
+  transform: rotateY(180deg);
+  height: 100%;
+  width: 100%;
 }
-.form{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-    flex: 45%;
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  flex: 45%;
 }
-.form > input{
-    padding: .5em;
-    margin: 1em;
-}
-
-.btn{
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: .6em;
-    width: 12em;
-    color: white;
-    background-color: #8f0029;
-    border-radius: 1em;
-}
-.btn:hover{
-    background-color: #7a0008;
-    transform: scale(98%);
+.form > input {
+  padding: 0.5em;
+  margin: 1em;
 }
 
-.card{
-    border: 8px solid #8f0029;
-    word-wrap: break-word;
-    width: 18em;
-    border-radius: 1em;
-    padding: 1em;
-    min-height:10em ;
+.btn {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.6em;
+  width: 12em;
+  color: white;
+  background-color: #8f0029;
+  border-radius: 1em;
+}
+.btn:hover {
+  background-color: #7a0008;
+  transform: scale(98%);
+}
+
+.card {
+  border: 8px solid #8f0029;
+  word-wrap: break-word;
+  width: 18em;
+  border-radius: 1em;
+  padding: 1em;
+  min-height: 10em;
+  perspective: 1000px;
+  transform: rotateY(180deg); 
+}
+
+.flip {
+  animation-name: Opociteflip;
+  animation-duration: 1s;
+  transform: rotateY(0deg);
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
   }
+
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes OpociteFlip {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

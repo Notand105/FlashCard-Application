@@ -14,6 +14,7 @@ const NewElementForm = () => {
   const [showDesc, setShowDesc] = useState("");
   const [FocusName, setFocusName] = useState(false);
   const [FocusDesc, setFocusDesc] = useState(false);
+  const [flip, setFlip] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,21 +43,35 @@ const NewElementForm = () => {
       : setShowDesc(description.current?.value || "");
   };
   const handleFocus = (type: string) => {
-    if(type === 'name'){
-      setFocusName((FocusName) => !FocusName)
-      setFocusDesc(false)
+    if (type === "name") {
+      setFlip(true);
+      setTimeout(() => {
+        setFocusDesc(false);
+      }, 100);
+      setTimeout(() => {
+        setFocusName((FocusName) => !FocusName);
+      }, 300);
+      setTimeout(() => {
+        setFlip(false);
+      }, 1000);
+    } else {
+      setFlip(true);
+      setTimeout(() => {
+        setFocusName(false);
+      }, 100);
+      setTimeout(() => {
+        setFocusDesc((FocusDesc) => !FocusDesc);
+      }, 300);
+      setTimeout(() => {
+        setFlip(false);
+      }, 1000);
     }
-    else{
-      setFocusDesc((FocusDesc) => !FocusDesc)
-      setFocusName(false)
-    }
-
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.demostration}>
-        <div className={styles.card}>
+        <div className={`${styles.card}  ${flip ? styles.flip : ""} `}>
           {FocusName ? (
             <div className={styles.frontPart}>
               <h2>{showName}</h2>
@@ -76,9 +91,8 @@ const NewElementForm = () => {
           name="name"
           ref={name}
           onChange={() => handleInputChange("name")}
-          onFocus={()=>handleFocus('name')}
+          onFocus={() => handleFocus("name")}
           // onBlur={ ()=>setFocusName(false)}
-
         />
         <label>Ingresa un descripción</label>
         <input
@@ -86,7 +100,7 @@ const NewElementForm = () => {
           name="description"
           ref={description}
           onChange={() => handleInputChange("desc")}
-          onFocus={()=>handleFocus('desc')}
+          onFocus={() => handleFocus("desc")}
           // onBlur={ ()=>setFocusDesc(false)}
         />
         <button type="submit" className={styles.btn}>
