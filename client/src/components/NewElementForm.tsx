@@ -12,8 +12,7 @@ const NewElementForm = () => {
   const description = useRef<HTMLInputElement>(null);
   const [showName, setShowName] = useState("");
   const [showDesc, setShowDesc] = useState("");
-  const [FocusName, setFocusName] = useState(false);
-  const [FocusDesc, setFocusDesc] = useState(false);
+  const [focused, setFocused] = useState("name");
   const [flip, setFlip] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,71 +41,52 @@ const NewElementForm = () => {
       ? setShowName(name.current?.value || "")
       : setShowDesc(description.current?.value || "");
   };
-  const handleFocus = (type: string) => {
-    if (type === "name") {
-      setFlip(true);
-      setTimeout(() => {
-        setFocusDesc(false);
-      }, 100);
-      setTimeout(() => {
-        setFocusName((FocusName) => !FocusName);
-      }, 300);
-      setTimeout(() => {
-        setFlip(false);
-      }, 1000);
-    } else {
-      setFlip(true);
-      setTimeout(() => {
-        setFocusName(false);
-      }, 100);
-      setTimeout(() => {
-        setFocusDesc((FocusDesc) => !FocusDesc);
-      }, 300);
-      setTimeout(() => {
-        setFlip(false);
-      }, 1000);
+  const handleFocus = (focus: string) => {
+    if (focused != focus) {
+      setFlip((flip) => !flip);
     }
+    setFocused(focus);
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.demostration}>
-        <div className={`${styles.card}  ${flip ? styles.flip : ""} `}>
-          {FocusName ? (
-            <div className={styles.frontPart}>
+        <div className={`${styles.cardParam}  `}>
+          <div className={`${styles.card}  ${flip ? styles.flip : ""} `}>
+            <div className={`${styles.frontPart}  `}>
               <h2>{showName}</h2>
             </div>
-          ) : null}
-          {FocusDesc ? (
-            <div className={styles.backPart}>
+            <div className={`${styles.backPart}`}>
               <p>{showDesc}</p>
             </div>
-          ) : null}
+          </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label>Ingresa el nombre del elemento</label>
-        <input
-          type="text"
-          name="name"
-          ref={name}
-          onChange={() => handleInputChange("name")}
-          onFocus={() => handleFocus("name")}
-          // onBlur={ ()=>setFocusName(false)}
-        />
-        <label>Ingresa un descripción</label>
-        <input
-          type="text"
-          name="description"
-          ref={description}
-          onChange={() => handleInputChange("desc")}
-          onFocus={() => handleFocus("desc")}
-          // onBlur={ ()=>setFocusDesc(false)}
-        />
-        <button type="submit" className={styles.btn}>
-          Submit
-        </button>
-      </form>
+      <div className={styles.formContainer}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label>Ingresa el nombre del elemento</label>
+          <input
+            type="text"
+            name="name"
+            ref={name}
+            onChange={() => handleInputChange("name")}
+            onFocus={() => handleFocus("name")}
+            // onBlur={ ()=>setFocusName(false)}
+          />
+          <label>Ingresa un descripción</label>
+          <input
+            type="text"
+            name="description"
+            ref={description}
+            onChange={() => handleInputChange("desc")}
+            onFocus={() => handleFocus("desc")}
+            // onBlur={ ()=>setFocusDesc(false)}
+          />
+          <button type="submit" className={styles.btn}>
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

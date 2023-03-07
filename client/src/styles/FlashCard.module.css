@@ -1,5 +1,4 @@
 .card{
-  border: 8px solid #8f0029;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -12,11 +11,9 @@
   transition: .2s ease;
   position: relative;
   max-width: 18em;
-  padding: 1em;
-  
+  perspective: 1000px; 
 }
 .card:hover{
-  border:8px solid gray;
   transform: scaleY(1.05) translateY(-1em)  ;
   cursor: pointer;
   transition: .2s ease;
@@ -24,6 +21,7 @@
 }
 
 .controls{
+  z-index: 100;
   position: absolute;
   top:1em;
   right: .5em;
@@ -38,4 +36,49 @@
 .controls > button:hover{
   transform: scale(1.3);
   transition: .1s ease;
+}
+
+.cardInfo{
+  border-radius: .8em;
+  position: relative;
+  /* border: 8px solid #8f0029; */
+  border: 3px solid rgb(125, 169, 125);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+
+  transform-style: preserve-3d;
+}
+
+.rotate{
+  transform: rotateY(180deg);
+}
+
+.front, .back{
+  border-radius: .6em;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 1em;
+  padding-top:3em;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.front{
+  background-image: url('https://cdn.pixabay.com/photo/2018/03/29/19/34/northern-lights-3273425_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+  color: white;
+
+}
+.back{
+ /* background-color: #4b6bd2;  */
+ background-color: white;
+ color: black;
+ transform: rotateY(180deg);
 }
