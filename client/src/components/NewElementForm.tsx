@@ -13,6 +13,7 @@ const NewElementForm = () => {
   const [showName, setShowName] = useState("");
   const [showDesc, setShowDesc] = useState("");
   const [FocusName, setFocusName] = useState(false);
+  const [FocusDesc, setFocusDesc] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,15 +41,32 @@ const NewElementForm = () => {
       ? setShowName(name.current?.value || "")
       : setShowDesc(description.current?.value || "");
   };
-  const handleFocus = () => {
-    setFocusName((FocusName) => !FocusName);
+  const handleFocus = (type: string) => {
+    if(type === 'name'){
+      setFocusName((FocusName) => !FocusName)
+      setFocusDesc(false)
+    }
+    else{
+      setFocusDesc((FocusDesc) => !FocusDesc)
+      setFocusName(false)
+    }
+
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.demostration}>
         <div className={styles.card}>
-          {FocusName ? <h2>{showName}</h2> : <p>{showDesc}</p>}
+          {FocusName ? (
+            <div className={styles.frontPart}>
+              <h2>{showName}</h2>
+            </div>
+          ) : null}
+          {FocusDesc ? (
+            <div className={styles.backPart}>
+              <p>{showDesc}</p>
+            </div>
+          ) : null}
         </div>
       </div>
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -58,8 +76,9 @@ const NewElementForm = () => {
           name="name"
           ref={name}
           onChange={() => handleInputChange("name")}
-          onFocus={handleFocus}
-          onBlur={handleFocus}
+          onFocus={()=>handleFocus('name')}
+          // onBlur={ ()=>setFocusName(false)}
+
         />
         <label>Ingresa un descripción</label>
         <input
@@ -67,6 +86,8 @@ const NewElementForm = () => {
           name="description"
           ref={description}
           onChange={() => handleInputChange("desc")}
+          onFocus={()=>handleFocus('desc')}
+          // onBlur={ ()=>setFocusDesc(false)}
         />
         <button type="submit" className={styles.btn}>
           Submit

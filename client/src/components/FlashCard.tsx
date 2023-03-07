@@ -8,7 +8,7 @@ const FlashCard = ({ element }: { element: Element }) => {
   const context = useContext(MainContext) as FlashCardContext;
   const { deleteElement } = context;
 
-  const [Flip, setFlip] = useState(false);
+  const [Flip, setFlip] = useState(true);
 
   const handleDeleteClick = (id: string) => {
     deleteElement ? deleteElement(id) : null;
