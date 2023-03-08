@@ -7,6 +7,7 @@ const MainContext = createContext<FlashCardContext | null>(null);
 const Context = ({ children }: { children: JSX.Element }) => {
 
   const [InitialData, setInitialData] = useState<Element[]>([]);
+  const [logged, setLogged] = useState<boolean>(true)
 
   useEffect(() => {
     LoadData();
@@ -31,10 +32,10 @@ const Context = ({ children }: { children: JSX.Element }) => {
   return (
     <MainContext.Provider
       value={{
-        num: 1,
         InitialData,
         LoadData,
         deleteElement,
+        logged,
       }}
     >
       {children}
