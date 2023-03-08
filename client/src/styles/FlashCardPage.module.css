@@ -6,6 +6,9 @@
     padding: 1em;
     gap: 1em;
 }
+.title{
+    font-size: 3em;
+}
 .btn{
     text-decoration: none;
     display: flex;
@@ -15,12 +18,13 @@
     padding: .6em;
     width: 12em;
     color: white;
-    background-color: #8f0029;
+    background-color: #003A43;
     translate: .1s ease;
     border-radius: 1em;
 }
 .btn:hover{
-    background-color: #7a0008;
-    transform: scale(97%);
+    background-color: #075b68;
+    transform: scale(103%);
+    cursor: pointer;
     translate: .1s ease;
 }

@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import CreateElement from './pages/CreateElement'
 import FlashCards from './pages/FlashCards'
 import Homepage from './pages/Homepage'
-import Login from './pages/login' 
+import Login from './pages/Login' 
 
 
 const App = () => {

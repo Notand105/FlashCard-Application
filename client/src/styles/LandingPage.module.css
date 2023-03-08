@@ -45,6 +45,10 @@
     font-size: 1em;
     font-weight: bolder;
     transition: .3s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .btn:hover{
     transform: scale(1.05);

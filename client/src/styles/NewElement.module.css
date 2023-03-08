@@ -68,11 +68,12 @@
   padding: 0.6em;
   width: 12em;
   color: white;
-  background-color: #8f0029;
+  background-color: #003A43;
   border-radius: 1em;
+  margin:1em;
 }
 .btn:hover {
-  background-color: #7a0008;
+  background-color: #075b68;
   transform: scale(98%);
 }
 .cardParam{

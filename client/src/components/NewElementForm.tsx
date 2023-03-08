@@ -9,7 +9,7 @@ const NewElementForm = () => {
   const context = useContext(MainContext) as FlashCardContext;
   const navigate = useNavigate();
   const name = useRef<HTMLInputElement>(null);
-  const description = useRef<HTMLInputElement>(null);
+  const description = useRef<HTMLTextAreaElement>(null);
   const [showName, setShowName] = useState("");
   const [showDesc, setShowDesc] = useState("");
   const [focused, setFocused] = useState("name");
@@ -74,8 +74,8 @@ const NewElementForm = () => {
             // onBlur={ ()=>setFocusName(false)}
           />
           <label>Ingresa un descripción</label>
-          <input
-            type="text"
+          <textarea
+            // type="text"
             name="description"
             ref={description}
             onChange={() => handleInputChange("desc")}
